@@ -1,6 +1,7 @@
 # generate bag - maybe use a dictionary?
 import random
 import readline
+import itertools
 # quick search how to open a txt file
 
 # magic number?
@@ -66,11 +67,21 @@ def checkWord(word):
     
     return checkedWord
 
-
-
+def findWord(wordFromPlayer):
 # try to make the longest word possible first
 # move on to make shorter words if not available
-
+    playerHand = len(wordFromPlayer)
+# How do I do that?
+# is there a method in built?
+# arrange letters in an object?
+# searched online = permutation
+#  idea using permutation,
+#  = different ways in which a given set of objects can be arranged
+# using the letters given, it finds the most amount of word combinations
+# maybe cross referencing using xt file?
+# ran out of time 
+# will look into this later, seems interesting :)
+        
 
 
 def playScrabble():
