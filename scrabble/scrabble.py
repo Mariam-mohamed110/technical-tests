@@ -21,11 +21,32 @@ def generateBag(letters):
 # It works yay
 
 
-def generatePoints():
+def generatePoints(letters):
 # assign each letter to its points
 # declare sum variable
+    sum = 0
 # for loop going over the word
 # if letter is ...: sum is ...
+    for i in str(letters):
+            if type(i) == str:
+                if i == 'D' or i == 'G':
+                    sum += 2
+                elif i == 'B' or i == 'C' or i == 'M' or i == 'P':
+                    sum += 3
+                elif i == 'F' or i == 'H' or i == 'V' or i == 'W' or i == 'Y':
+                    sum += 4
+                elif i == 'K':
+                    sum += 5
+                elif i == 'J' or i == 'X':
+                    sum += 8
+                elif i == 'Q' or i == 'Z':
+                    sum += 10
+                else:
+                    sum += 1
+    return sum
+
+print(generatePoints('D, A'))
+
 
 def openDictionary():
 #  use with open to open file
@@ -33,9 +54,11 @@ def openDictionary():
         dictionaryTxt = readline(f)
     return dictionaryTxt
 
-def shuffle():
+def shuffle(bag):
 # to shuffle the tile in bag
 # use import random function
+    shuffleBag = random.shuffle(bag)
+    return shuffleBag
 
 
 def playScrabble():
