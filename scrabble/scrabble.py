@@ -7,6 +7,12 @@ import readline
 tileDistribution = {'E': 12, 'A': 9, 'I': 9, 'O': 8, 'N': 6, 'R': 6, 'T': 6, 'L': 4, 'S': 4, 'U': 4, 'D': 4, 'G': 3, 'B': 2, 'C': 2, 'M': 2, 'P': 2, 'F': 2, 'H': 2, 'V': 2, 'W': 2, 'Y': 2}
 # dictionary, each letter with its dist.
 
+def openDictionary():
+    #  use with open to open file
+    with open('dictionary.txt') as f:
+        dictionaryTxt = readline(f)
+    return dictionaryTxt
+
 def generateBag(letters):
 # variable = empty array
     bagTiles = []
@@ -19,7 +25,6 @@ def generateBag(letters):
 
 # print(generateBag(tileDistribution))
 # It works yay
-
 
 def generatePoints(letters):
 # assign each letter to its points
@@ -45,24 +50,21 @@ def generatePoints(letters):
                     sum += 1
     return sum
 
-print(generatePoints('D, A'))
+# print(generatePoints('D, A'))
+# print(generatePoints('GUARDIAN')) 
+# think about removing space and joining the word together
 
-
-def openDictionary():
-#  use with open to open file
-    with open('dictionary.txt') as f:
-        dictionaryTxt = readline(f)
-    return dictionaryTxt
-
-def shuffle(bag):
-# to shuffle the tile in bag
-# use import random function
-    shuffleBag = random.shuffle(bag)
-    return shuffleBag
+def tileDrawn(letter):
+    return letter.pop(0)
 
 
 def playScrabble():
 # where the random tiles will be held
 # player gets 7 tiles which get removed from the bag
 # a word is generated which is compared to the dictionary file
+    newBag = generateBag(tileDistribution)
+    random.shuffle(newBag)
+    assignedTiles = [tileDrawn(newBag), tileDrawn(newBag), tileDrawn(newBag), tileDrawn(newBag), tileDrawn(newBag), tileDrawn(newBag), tileDrawn(newBag)]
+    return assignedTiles
 
+print(playScrabble())
