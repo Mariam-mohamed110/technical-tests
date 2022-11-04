@@ -57,6 +57,21 @@ def generatePoints(letters):
 def tileDrawn(letter):
     return letter.pop(0)
 
+def checkWord(word):
+# match word to txt file
+# should use the txt file to match the letters with the right word
+    checkedWord = []
+    if word in openDictionary():
+        checkedWord.append(word)
+    
+    return checkedWord
+
+
+
+# try to make the longest word possible first
+# move on to make shorter words if not available
+
+
 
 def playScrabble():
 # where the random tiles will be held
@@ -68,3 +83,4 @@ def playScrabble():
     return assignedTiles
 
 print(playScrabble())
+# prints out an array of letters
